@@ -136,9 +136,9 @@ p {
 <div id="login">
     <h1>💖 Solo para ti 💖</h1>
     <p>Ingresa nuestra fecha especial</p>
-    <input type="password" id="pass" placeholder="Ej: 14/02">
+    <input type="password" id="pass" placeholder="Ej: 14/02" autocomplete="off">
     <br>
-    <button onclick="check()">Entrar 💘</button>
+    <button id="btnLogin">Entrar 💘</button>
 </div>
 
 <!-- HISTORIA -->
@@ -308,6 +308,7 @@ function mostrarFinal(){
         });
     }
 }
+    document.getElementById("btnLogin").addEventListener("click", check);
 </script>
 
 </body>
