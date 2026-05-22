@@ -138,7 +138,7 @@ p {
     <p>Ingresa nuestra fecha especial</p>
     <input type="password" id="pass" placeholder="Ej: 14/02">
     <br>
-    <button onclick="startExperience()">Entrar 💘</button>
+    <button onclick="check()">Entrar 💘</button>
 </div>
 
 <!-- HISTORIA -->
@@ -201,6 +201,15 @@ function check(){
         document.getElementById("login").style.display = "none";
         document.getElementById("story").style.display = "block";
 
+         let music = document.getElementById("music");
+
+        music.muted = false;
+        music.volume = 1;
+
+        // 🔥 INTENTAR REPRODUCIR SIN BLOQUEAR FLUJO
+        music.play().catch(() => {
+            console.log("El navegador bloqueó el audio");
+        });
         
         hearts();
         showSlides();
@@ -279,18 +288,7 @@ function mostrarFinal(){
     let el = document.getElementById("finalText");
     typeWriter(el, textoFinal);
 }
-    function startExperience(){
-    let music = document.getElementById("music");
-
-    music.muted = false;
-    music.volume = 1;
-
-    music.play().then(() => {
-        check(); // recién entra al sistema
-    }).catch(() => {
-        alert("Toca otra vez 💘");
-    });
-}
+    
 </script>
 
 </body>
