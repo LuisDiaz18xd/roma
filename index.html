@@ -195,25 +195,27 @@ let slides = document.querySelectorAll(".slide");
 let index = 0;
 
 function check(){
-    function check(){
     alert("Entrando..."); // 👈 temporal
-
     let pass = document.getElementById("pass").value;
 
-    if(pass === "21/03"){
-        alert("Correcto"); // 👈 prueba
-
+    if(pass === "21/03"){ // CAMBIA AQUÍ
         document.getElementById("login").style.display = "none";
         document.getElementById("story").style.display = "block";
 
+         let music = document.getElementById("music");
+
+        music.muted = false;
+        music.volume = 1;
+
+        // 🔥 INTENTAR REPRODUCIR SIN BLOQUEAR FLUJO
         forzarAudio();
+        });
+        
         hearts();
         showSlides();
-
     } else {
         alert("Clave incorrecta 💔");
     }
-
 }
 
 /* TEXTO TIPO ESCRITURA */
