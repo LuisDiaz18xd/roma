@@ -207,8 +207,7 @@ function check(){
         music.volume = 1;
 
         // 🔥 INTENTAR REPRODUCIR SIN BLOQUEAR FLUJO
-        music.play().catch(() => {
-            console.log("El navegador bloqueó el audio");
+        forzarAudio();
         });
         
         hearts();
@@ -288,7 +287,27 @@ function mostrarFinal(){
     let el = document.getElementById("finalText");
     typeWriter(el, textoFinal);
 }
-    
+    function forzarAudio(){
+    let music = document.getElementById("music");
+
+    music.muted = false;
+    music.volume = 1;
+
+        forzarAudio();
+
+    let playPromise = music.play();
+
+    if (playPromise !== undefined) {
+        playPromise.catch(() => {
+
+            // 🔥 si falla, lo reintenta con interacción
+            document.body.addEventListener("click", function(){
+                music.play();
+            }, { once: true });
+
+        });
+    }
+}
 </script>
 
 </body>
